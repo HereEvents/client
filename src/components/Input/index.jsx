@@ -6,13 +6,19 @@ import { useState } from "react";
 // icon: ________________
 
 const Input = (props) => {
-  const { label, style = {}, className = "", onChange, ...inputProps } = props;
+  const { label, className = "", type, onChange, ...inputProps } = props;
+
   return (
-    <div className={`${styles.Name} ${className}`} style={style} {...props}>
-      <label>
+    <div>
+      <label className={styles.label}>
         <div>{label} </div>
-        <input {...inputProps} onChange={onChange} />
       </label>
+      <input
+        className={`${styles.input} ${className}`}
+        {...inputProps}
+        onChange={onChange}
+        type={type}
+      />
     </div>
   );
 };

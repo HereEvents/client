@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import styles from "./style.module.css";
 import ClassicButton from "../../components/ClassicButton copy";
 import EventCard from "../../components/EventCard";
-import Header from "../../layout/Header";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import headerContext from "../../context/headerContext";
 
 // Creator: Yisrael_Olonoff
@@ -17,7 +16,6 @@ function Home() {
   const navigate = useNavigate();
   const navToNewEvent = () => {
     navigate("/newEvent");
-    console.log(setHeader);
   };
   setHeader('home');
   return (
