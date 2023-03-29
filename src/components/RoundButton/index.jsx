@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 // using my props: icon, func, text, ...props.
 // to add text in your button use the text prop, example: 
 // <RoundButton icon={<Icon/>} func={func} text={'text'} ></RoundButton>
+// to get nice results use fill icons, png type.
 
 
 function RoundButton({ icon, func, text, ...props }) {

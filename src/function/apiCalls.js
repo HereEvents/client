@@ -10,9 +10,7 @@ const apiCalls = async (
     header = null
 ) => {
     const baseUrl = process.env.SERVER || `http://localhost:${PORT}`
-    // const baseUrl = "https://server-production-7ef9.up.railway.app/"
     const fullUrl = `${baseUrl}/api/${url}`;
-    console.log(baseUrl);
     try {
         const data = await axios({
             method: method,
