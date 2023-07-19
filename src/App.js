@@ -5,7 +5,7 @@ import './app.css';
 import { Helmet } from "react-helmet";
 import ReactGA from 'react-ga4';
   
-const TRACKING_ID = "G-0KR78SJP2Q"; 
+const TRACKING_ID = "G-P57B1L6M33"; 
 ReactGA.initialize(TRACKING_ID);
 
 function App() {
