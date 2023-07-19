@@ -56,7 +56,7 @@ function Login() {
       setUser(res.user);
       setToken(res.token);
       localStorage.setItem("Token", res.token);
-      eventTracker('login',JSON.stringify(res.user),'userLogin')
+      eventTracker('login',res.user.email,'userLogin')
       navigate("/");
     } else {
       alert(res);
