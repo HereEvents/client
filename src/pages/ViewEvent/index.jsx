@@ -58,24 +58,30 @@ export default function ViewEvent() {
   const [isPublished, setIsPublished] = useState(false);
 
   async function fetchEvent() {
-    let apiData = await apiCalls("get", "/event/" + event);
-    if (user.userType === "admin") {
-      checkUserType();
-      if (apiData.status === "published") {
-        setIsPublished(true);
-        setIsActive(true);
+    try {
+      let apiData = await apiCalls("get", "/event/" + event);
+      if (user.userType === "admin") {
+        checkUserType();
+        if (apiData.status === "published") {
+          setIsPublished(true);
+          setIsActive(true);
+        }
       }
+      if (new Date(apiData.date[apiData.date.length - 1]) > new Date()) {
+        const futureDates = apiData.date.filter(
+          (date) => new Date(date) >= new Date()
+        );
+        apiData.date = futureDates.slice(0, 1);
+      }
+      setEventData(apiData);
+  
+      console.log(apiData);
+    } catch (error) {
+      console.log("catch");
+      setLoading(() => "error");
     }
-    if (new Date(apiData.date[apiData.date.length - 1]) > new Date()) {
-      const futureDates = apiData.date.filter(
-        (date) => new Date(date) >= new Date()
-      );
-      apiData.date = futureDates.slice(0, 1);
+      
     }
-    setEventData(apiData);
-
-    console.log(apiData);
-  }
 
   async function checkUserType() {
     const token = localStorage.getItem("Token");
@@ -136,7 +142,7 @@ export default function ViewEvent() {
 
   return (
     <>
-      {loading ? (
+      {loading=="error" ? "404 העמוד הוסר או אינו קיים" : loading? (
         <Loader />
       ) : (
         <div
