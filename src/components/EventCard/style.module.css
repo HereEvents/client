@@ -1,6 +1,7 @@
 .main {
   width: 96%;
   height: 19vh;
+  min-height: 135px;
   border-radius: 7px;
   display: flex;
   direction: rtl;

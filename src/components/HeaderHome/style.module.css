@@ -8,7 +8,7 @@
   margin-bottom: 20px;
 }
 .headerHome_container {
-  /* padding-top: 20pt; */
+  padding-bottom: 8px;
 }
 @keyframes spin {
   from {
@@ -23,7 +23,9 @@
 .scroll {
   direction: rtl;
   display: flex;
-  padding-right: 5%;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
   padding-bottom: 12pt;
 }
 
@@ -41,7 +43,6 @@
   border: 1px var(--text-Fourth-color) solid;
   border-radius: 20px;
   width: 80%;
-  margin-left: 18%;
 }
 
 .icon,
@@ -62,6 +63,11 @@
   margin-right: 10pt;
   margin-top: 4pt;
 }
+.iconDeclaimer {
+  height: 20px;
+  margin-right: 22pt;
+  margin-top: 7pt;
+}
 
 .visibleInput {
   border: none;
@@ -70,6 +76,22 @@
   font-size: 15px;
   font-family: "Varela Round", sans-serif;
   outline: none;
+}
+.declaimer {
+  color: #ffffffff;
+  display: flex;
+}
+.declaimertext {
+  margin-top: 10px;
+  margin-right: 1px;
+  display: flex;
+  font-size: 11px;
+  font-family: "Heebo";
+  font-weight: 500;
+  color: #ffffffff;
+  text-align: Right;
+  letter-spacing: 1px;
+  text-decoration: Underline;
 }
 ::placeholder {
   color: #cccccc;
@@ -80,7 +102,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 13pt;
-  height: 85pt;
+  height: 37px;
 }
 .logo_container {
   display: block;

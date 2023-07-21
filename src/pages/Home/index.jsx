@@ -8,6 +8,7 @@ import userContext from "../../context/userContext";
 import popUpContext from "../../context/popUpContext";
 import apiCalls from "../../function/apiCalls";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { Helmet } from "react-helmet";
 
 // Creator: Yisrael_Olonoff
 // i created the home page using the "Header", "EventCard",
@@ -88,6 +89,15 @@ function Home() {
 
   return (
     <div className={styles.main}>
+      <Helmet>
+        <title>KorePo</title>
+        <link rel="icon" href="../../../public/logo-hereHvent.ico" />
+        <meta name="description" content="האירוע שלך נמצא כאן KorePo" />
+        <meta
+          name="keywords"
+          content="אירועים בבנימין,הופעות בבנימין,בנימין,אירועים"
+        />
+      </Helmet>
       {/* <BiLogOutCircle className={styles.logOut} onClick={logOut} /> */}
       <div className={styles.eventsContainer}>
         <EventCard

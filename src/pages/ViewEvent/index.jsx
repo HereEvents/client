@@ -74,14 +74,13 @@ export default function ViewEvent() {
         apiData.date = futureDates.slice(0, 1);
       }
       setEventData(apiData);
-  
+
       console.log(apiData);
     } catch (error) {
-      console.log("catch");
+      console.log("error - url no be");
       setLoading(() => "error");
     }
-      
-    }
+  }
 
   async function checkUserType() {
     const token = localStorage.getItem("Token");
@@ -142,7 +141,9 @@ export default function ViewEvent() {
 
   return (
     <>
-      {loading=="error" ? "404 העמוד הוסר או אינו קיים" : loading? (
+      {loading == "error" ? (
+        "האירוע שחיפסת לא קיים יותר במערכת"
+      ) : loading ? (
         <Loader />
       ) : (
         <div

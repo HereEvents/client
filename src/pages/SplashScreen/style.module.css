@@ -9,17 +9,21 @@
 }
 
 .logo{
-    width: 65%;
+    width: 100%;
+    margin: 0% -10% -17% 0%;
+}
+.logo2{
+    width: 90%;
+    margin: 0% -7% 15% 0%;
 }
 
 .textContainer{
     width: 75%;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .welcom{
     align-items: flex-start;
-    font-weight: bold;
     color: var(--text-Fourth-color);
 }
 
@@ -29,16 +33,21 @@
 }
 
 
-.button{
+/* .button{
+    justify-content: center;
     display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  height: 50px;
-  background-color: var(--text-Fourth-color);
-  color: var(--bg-secondary-color);
-  font-size: large;
-  font-weight: bold;
-  border-radius: 12px;
-  border: none;
+    align-items: center;
+    height: 50px;
+    background-color: var(--text-Fourth-color);
+    color: var(--bg-secondary-color);
+    font-size: large;
+    font-weight: bold;
+    border-radius: 12px;
+    width: 90%;
+    border: none;
+} */
+
+.continueButton{
+    color: var(--text-Fourth-color);
+    font-weight: bold;
 }

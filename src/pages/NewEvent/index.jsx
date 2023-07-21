@@ -366,11 +366,18 @@ export default function NewEvent({ style = {}, className = "", ...props }) {
 
       apiCalls("post", "/event/createvent", formData, {
         headers: { "Content-Type": "multipart/form-data" },
-      }).then((res) => {
-        if (res._id != "") {
-          sessionStorage.clear();
-        }
-      });
+      })
+        .then((res) => {
+          if (res._id != "") {
+            sessionStorage.clear();
+          }
+        })
+        .catch((err) => {
+          setPopUpText(err.response.data);
+          setSaveEventMode(true);
+          setPopUp(true);
+          nav("/newEvent");
+        });
     }
   };
 

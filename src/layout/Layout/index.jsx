@@ -59,9 +59,12 @@ function Layout() {
   }, []);
 
   useEffect(() => {
+    let milliSecond= 1000*60*2
+    if(localStorage.secondTime){milliSecond = 750}
       setTimeout(() => {
         setLoader(false);
-      }, 4000);
+        localStorage.secondTime = true 
+      }, milliSecond);
   }, []);
 
   // useEffect(() => {
@@ -86,7 +89,7 @@ function Layout() {
       <userContext.Provider value={{ user, setUser, isAdmin, setIsAdmin }}>
         <popUpContext.Provider value={{ setPopUp, setGuestMode, setPopUpText,setSaveEventMode }}>
           {loader ? (
-        <SplashScreen loader={loader} setLoader={setLoader}/>
+        <SplashScreen loader={loader} setLoader={setLoader} />
       ) : (
           <headerContext.Provider
             value={{ header, setHeader, search, setSearch }}
