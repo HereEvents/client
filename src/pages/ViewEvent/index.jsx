@@ -142,7 +142,7 @@ export default function ViewEvent() {
   return (
     <>
       {loading == "error" ? (
-        "האירוע שחיפסת לא קיים יותר במערכת"
+        "האירוע שחיפשת לא קיים יותר במערכת"
       ) : loading ? (
         <Loader />
       ) : (

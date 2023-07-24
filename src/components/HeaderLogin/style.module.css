@@ -25,17 +25,18 @@
   margin-top: 10px;
   margin-right: 1px;
   display: flex;
-  font-size: 11px;
+  font-size: 15px;
   font-family: "Heebo";
   font-weight: 500;
+  font-style: normal;
   color: #ffffffff;
   text-align: Right;
-  letter-spacing: 1px;
+  letter-spacing: 0.1px;
   text-decoration: Underline;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 .iconDeclaimer {
-  height: 20px;
-  margin-right: 22pt;
-  margin-top: 7pt;
+  height: 18px;
+  margin-right: 5%;
+  margin-top: 9pt;
 }

@@ -18,7 +18,7 @@ function HeaderLogin() {
           className={styles.iconDeclaimer}
         />
         <span className={styles.declaimertext}>
-          אנחנו בהרצה נשמח לקבל ממך פידבק
+          אנחנו בהרצה! נשמח לקבל ממך פידבק
         </span>
       </Link>
     </div>

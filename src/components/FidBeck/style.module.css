@@ -1,19 +1,23 @@
-.main {
+.declaimer {
+  color: #ffffffff;
   display: flex;
-  align-items: center;
-  position: relative;
-  background-color: var(--bg-secondary-color);
-  width: 100%;
-  height: 100pt;
-  border-radius: 0px 0px 35px 35px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
-  transition: 0.3s;
-  margin-bottom: 20px;
 }
 
-.logo {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  height: 30pt;
+.iconDeclaimer {
+  height: 18px;
+  margin-right: 22pt;
+  margin-top: 7pt;
+}
+
+.declaimertext {
+  margin-top: 10px;
+  margin-right: 1px;
+  display: flex;
+  font-size: 11px;
+  font-family: "Heebo";
+  font-weight: 500;
+  color: #ffffffff;
+  text-align: Right;
+  letter-spacing: 1px;
+  text-decoration: Underline;
 }

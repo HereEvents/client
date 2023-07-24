@@ -64,9 +64,9 @@
   margin-top: 4pt;
 }
 .iconDeclaimer {
-  height: 20px;
-  margin-right: 22pt;
-  margin-top: 7pt;
+  height: 18px;
+  margin-right: 5%;
+  margin-top: 9pt;
 }
 
 .visibleInput {
@@ -78,19 +78,21 @@
   outline: none;
 }
 .declaimer {
-  color: #ffffffff;
+  color: var(--text-Fourth-color);
   display: flex;
 }
 .declaimertext {
   margin-top: 10px;
   margin-right: 1px;
+  margin-bottom: -3px;
   display: flex;
-  font-size: 11px;
+  font-size: 15px;
   font-family: "Heebo";
   font-weight: 500;
-  color: #ffffffff;
+  font-style: normal;
+  color: var(--text-Fourth-color);
   text-align: Right;
-  letter-spacing: 1px;
+  letter-spacing: 0.1px;
   text-decoration: Underline;
 }
 ::placeholder {
