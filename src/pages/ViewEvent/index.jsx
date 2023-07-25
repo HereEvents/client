@@ -141,9 +141,20 @@ export default function ViewEvent() {
 
   return (
     <>
-      {loading == "error" ? (
-        "האירוע שחיפשת לא קיים יותר במערכת"
-      ) : loading ? (
+      {loading == "error" ? (setHeader("login")||<div className={style.notBe}>
+        <span>האירוע שחיפשת לא קיים יותר במערכת</span>
+        <div className={style.homeButton}>
+                    <ClassicButton
+                      width={"100%"}
+                      height={"50px"}
+                      type={"submit"}
+                      onClick={() => navigate("/")}
+                      // onClick={loginAouth}
+                    >
+                      <AiOutlineHome className={style.icon} />לדף הבית
+                    </ClassicButton>
+                  </div>
+      </div>) : loading ? (
         <Loader />
       ) : (
         <div

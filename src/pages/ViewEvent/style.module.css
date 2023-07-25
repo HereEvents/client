@@ -171,3 +171,11 @@ a:hover {
 a:active {
   text-decoration: none;
 }
+
+.notBe{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}

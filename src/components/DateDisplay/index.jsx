@@ -16,10 +16,10 @@ export default function DateDisplay({returnType, values, startDate,viewEvent}){
     let end= values.repeatTimesEnd+ " פעמים"
 
 if(values.repeatTimesEnd==1){
-    end=", פעם אחת"
+    end="פעם אחת"
 }
 if(values.repeatTimesEnd==2){
-    end=", פעמיים"
+    end="פעמיים"
 }
 
 
