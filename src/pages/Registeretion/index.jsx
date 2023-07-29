@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState,useContext } from "react";
 import styles from "./style.module.css";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import headerContext from "../../context/headerContext";
 import Input from "../../components/Input";
@@ -9,9 +8,12 @@ import { IoIosCreate } from "react-icons/io";
 import axios from "axios";
 import { error } from "jquery";
 import apiCalls from "../../function/apiCalls";
+import { setToken } from "../../function/token";
+import userContext from "../../context/userContext";
 
 function Registeretion() {
   const { setHeader } = useContext(headerContext);
+  const { setUser } = useContext(userContext);
   setHeader("דף הרשמה");
   const [isValid, setIsValid] = useState(true);
   const [userData, setUserData] = useState({});
@@ -42,15 +44,6 @@ function Registeretion() {
       required: true,
     },
     {
-      id: 3,
-      name: "confirmPassword",
-      type: "password",
-      placeholder: "🗝️ אמת סיסמא",
-      errorMessage: "אמת סיסמא",
-      maxLength: "14",
-      required: true,
-    },
-    {
       id: 4,
       name: "email",
       type: "email",
@@ -74,8 +67,7 @@ function Registeretion() {
     const filteredWords = words.filter((word) => word.length >= 2);
 
     if (filteredWords.length >= 2) {
-      if (userData.password === userData.confirmPassword) {
-        const { confirmPassword, ...data } = userData;
+        const data = userData;
         const updatedData = {
           ...data,
           userType: "regular",
@@ -84,24 +76,29 @@ function Registeretion() {
 
         try {
           const res = await apiCalls("post", "user/creatUser", updatedData);
-          if (!res.newUser.error) {
-            navigate("/login");
+          console.log(res.user);
+          if (res) {
+            if (res.token) {
+              setUser(res.user);
+              setToken(res.token);
+              localStorage.setItem("Token", res.token);
+              navigate("/");
+            } else {
+              alert(res);
+            }
           } else {
-            alert(res.newUser.error);
+            alert(res.error);
           }
         } catch (error) {
           alert(error);
         }
-      } else {
-        alert("ססמאות לא תואמות");
-      }
     } else {
-      alert("יש לבחור שם משתמש מלא באנגלית");
+      alert("יש לבחור שם מלא תיקני");
     }
   };
 
   const handleKeyDown = (e) => {
-    const allowedKeys = /^[a-zA-Z ]$/;
+    const allowedKeys = /^[a-zA-Zא-ת ]$/;
     if (
       e.target.name === "fullName" &&
       !allowedKeys.test(e.key) &&
@@ -114,7 +111,7 @@ function Registeretion() {
   const handleChange = (e) => {
     if (e.target.name === "fullName") {
       const name = e.target.value;
-      const filteredName = name.replace(/[^a-zA-Z ]/g, "");
+      const filteredName = name.replace(/[^a-zA-Zא-ת ]/g, "");
       setUserData({ ...userData, [e.target.name]: filteredName });
     } else {
       setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -131,7 +128,7 @@ function Registeretion() {
         className={styles.formArea}
         noValidate
         onSubmit={createUser}
-        autoComplete="off"
+        autoComplete="on"
       >
         <div className={styles.header}>
           <span> נעים מאוד :)</span>
