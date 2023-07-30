@@ -19,6 +19,8 @@ import { Link } from "react-router-dom";
 import DateDisplay from "../../components/DateDisplay";
 import Loader from "../../components/Loader";
 import { Helmet } from "react-helmet";
+import popUpContext from "../../context/popUpContext";
+
 
 // Creator: Naama Orlan
 //This page view the details of a specific event.
@@ -40,9 +42,11 @@ export default function ViewEvent() {
     "641189cf3d762f6a181064cb": "מוזיקה",
   };
 
-  const { user } = useContext(userContext);
   const { isAdmin, setIsAdmin } = useContext(userContext);
   const { setHeader } = useContext(headerContext);
+  const { user, setUser } = useContext(userContext);
+  const { setPopUp, setGuestMode, setPopUpText } = useContext(popUpContext);
+
   setHeader("פרטי האירוע");
 
   // In the routing there is a param called event which contains the event id.
@@ -91,6 +95,37 @@ export default function ViewEvent() {
       setIsAdmin(apiData.userType);
     }
   }
+
+  const VerifyToken = async (e) => {
+    const token = localStorage.getItem("Token");
+    if (token) {
+      const verifiedUser = await apiCalls("post", "/user/verify", {
+        aoutherizetion: token,
+      });
+      if (verifiedUser.email) {
+        setUser(verifiedUser);
+      } else if (verifiedUser.status === 401) {
+        setUser(false);
+        setGuestMode(true);
+        setPopUp(true);
+        setPopUpText(
+          "🏄🏽😎 הנך נמצא כרגע על מצב אורח, אנו ממליצים להתחבר לאפליקצייה כדי שתוכל להנות מחוויית גלישה מקסימלית"
+        );
+      } else {
+        console.log(`somthing went wrong: ${verifiedUser}`);
+      }
+    } else {
+      setGuestMode(true);
+      setPopUp(true);
+      setPopUpText(
+        "הנך נמצא על מצב אורח, התחבר ותהנה מחווית גלישה מקסימלית 🏄🏽"
+      );
+    }
+  };
+
+  useEffect(() => {
+    VerifyToken();
+  }, []);
 
   useEffect(() => {
     fetchEvent();

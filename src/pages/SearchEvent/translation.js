@@ -42,6 +42,7 @@ const areaLocations = {
 
 const locationsAreaLess = [
   "עלמון",
+  "מצפה חגית",
   "עמיחי",
   "עטרת",
   "בית חורון",
