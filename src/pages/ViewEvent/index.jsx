@@ -20,6 +20,7 @@ import DateDisplay from "../../components/DateDisplay";
 import Loader from "../../components/Loader";
 import { Helmet } from "react-helmet";
 import popUpContext from "../../context/popUpContext";
+import IntroductionFormPopup from "../../components/IntroductionFormPopup";
 
 
 // Creator: Naama Orlan
@@ -60,6 +61,7 @@ export default function ViewEvent() {
   const [eventData, setEventData] = useState();
   const [isActive, setIsActive] = useState(false);
   const [isPublished, setIsPublished] = useState(false);
+  const [isPopup, setIsPopup] = useState(false);
 
   async function fetchEvent() {
     try {
@@ -96,36 +98,14 @@ export default function ViewEvent() {
     }
   }
 
-  const VerifyToken = async (e) => {
-    const token = localStorage.getItem("Token");
-    if (token) {
-      const verifiedUser = await apiCalls("post", "/user/verify", {
-        aoutherizetion: token,
-      });
-      if (verifiedUser.email) {
-        setUser(verifiedUser);
-      } else if (verifiedUser.status === 401) {
-        setUser(false);
-        setGuestMode(true);
-        setPopUp(true);
-        setPopUpText(
-          "🏄🏽😎 הנך נמצא כרגע על מצב אורח, אנו ממליצים להתחבר לאפליקצייה כדי שתוכל להנות מחוויית גלישה מקסימלית"
-        );
-      } else {
-        console.log(`somthing went wrong: ${verifiedUser}`);
-      }
-    } else {
-      setGuestMode(true);
-      setPopUp(true);
-      setPopUpText(
-        "הנך נמצא על מצב אורח, התחבר ותהנה מחווית גלישה מקסימלית 🏄🏽"
-      );
-    }
-  };
+  const VerifyToken = async () => {
+    if(user===""){
+            setIsPopup(true)
+      }}
 
   useEffect(() => {
     VerifyToken();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     fetchEvent();
@@ -169,6 +149,17 @@ export default function ViewEvent() {
       });
       console.log(updatedData);
       setIsPublished(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleTag = async (e) => {
+    try {
+      const updatedData = await apiCalls("put", `/event/${event}`, {
+        tag: e.target.value,
+      });
+      console.log(updatedData);
     } catch (error) {
       console.log(error);
     }
@@ -402,6 +393,12 @@ export default function ViewEvent() {
                       </Link>
                     </p>{" "}
                   </div>
+                  <select name="tags" onChange={handleTag} defaultValue={eventData.tag?eventData.tag:"noTag"}>
+                    <option value="noTag">תיוג אירוע</option>
+                    <option value="event">אירוע כללי</option>
+                    <option value="food">אוכל עם אווירה</option>
+                    <option value="attraction">אטרקציות וסדנאות בהזמנה אישית</option>
+                  </select>
                   <div className={style.publishButton}>
                     <button
                       className={`${
@@ -423,6 +420,7 @@ export default function ViewEvent() {
           </div>
         </div>
       )}
+            {isPopup&&<IntroductionFormPopup setIsPopup={setIsPopup}/>}
     </>
   );
 }

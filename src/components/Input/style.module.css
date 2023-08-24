@@ -1,5 +1,5 @@
 .label {
-  width: 332px;
+  width: 100%;
   height: 19px;
 
   font-style: normal;
@@ -158,4 +158,8 @@
   font-size: 12px;
   margin-top: 5px;
   margin-bottom: 10px;
+}
+
+.containerInput input::placeholder {
+  text-align: right;
 }

@@ -76,7 +76,28 @@
   font-size: 15px;
   font-family: "Varela Round", sans-serif;
   outline: none;
+  width: 81%;
 }
+
+.visibleInput::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='white'><path d='M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat center center;
+}
+
+.visibleInput::placeholder {
+  color: #E6E6E6;
+  text-align: right;
+  font-family: Heebo;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+
 .declaimer {
   color: var(--text-Fourth-color);
   display: flex;

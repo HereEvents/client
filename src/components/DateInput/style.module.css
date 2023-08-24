@@ -2,26 +2,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 100%;
 }
 
-
-.button{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px;
-    height: 42px;
-    width: 241px;
-    border-radius: 10px;
-    background-color:var(--text-Fourth-color);
-    border: none;
-    /* color: var(--text-third-color); */
-    color: var(--text-color);
-    font-size: 15px;
-    box-shadow: 2px 3px 2px 2px #ccc9c9c3;
-    cursor: pointer;
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0px 20px 20px;
+  height: 42px;
+  width: 241px;
+  border-radius: 10px;
+  background-color: var(--text-Fourth-color);
+  border: none;
+  /* color: var(--text-third-color); */
+  color: var(--text-color);
+  font-size: 15px;
+  box-shadow: 2px 3px 2px 2px #ccc9c9c3;
+  cursor: pointer;
 }
-.customized{
+.customized {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -31,13 +31,12 @@
   width: 100%;
   border: hsl(0, 0%, 80%) 1px solid;
   border-radius: 10%;
-  background-color:var(--text-Fourth-color);
-  color: var(--text-color);;
+  background-color: var(--text-Fourth-color);
+  color: var(--text-color);
   font-size: 80%;
   cursor: pointer;
-
 }
-.datepicker{
+.datepicker {
   position: absolute;
 }
 .calIcon,

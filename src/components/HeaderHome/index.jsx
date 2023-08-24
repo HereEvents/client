@@ -44,7 +44,7 @@ function HeaderHome({ page, isValid, setIsValid }) {
           ></div>
         </div>
         <div className={styles.options}>
-          <div className={styles.searchContainer}>
+          <label className={styles.searchContainer}>
             <span>
               <GoSearch className={styles.iconSearch} />{" "}
             </span>
@@ -60,7 +60,7 @@ function HeaderHome({ page, isValid, setIsValid }) {
                   : setSearch("");
               }}
             />
-          </div>
+          </label>
           <span
             className={styles.advanceContainer}
             onClick={() => {

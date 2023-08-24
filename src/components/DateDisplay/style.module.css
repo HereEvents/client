@@ -1,15 +1,16 @@
-.date{
-    display: flex;
+.date {
+  display: flex;
+  width: 100%;
 }
 
-.icon{
-display: flex;
-align-items: center;
+.icon {
+  display: flex;
+  align-items: center;
 }
 
-.returnType{
-    margin-right: 4%;
+.returnType {
+  margin-right: 4%;
 }
-.space{
-    margin-right: 3px;
+.space {
+  margin-right: 3px;
 }

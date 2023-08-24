@@ -109,3 +109,14 @@
 .loadingNextPage{
 margin: -4% 0 0 70%;
 }
+
+.secondTitle{
+  width: 100%;
+  padding-right: 15px;
+}
+
+/* .containerSecondTitle{
+  display: flex;
+  justify-content: flex-start;
+  float: right;
+} */

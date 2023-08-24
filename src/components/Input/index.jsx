@@ -11,6 +11,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Input = (props) => {
   const {
+    noLabelAndError,
     label,
     errorMessage,
     instructions,
@@ -43,10 +44,10 @@ const Input = (props) => {
   return (
     <>
       {type != "radio" ? (
-        <div>
-          <label className={styles.label}>
+        <div className={styles.containerInput}>
+          {noLabelAndError||<label className={styles.label}>
             <div>{label} </div>
-          </label>
+          </label>}
           <input
             // className={`${styles.input} ${className}`}
             className="form-control"
@@ -58,7 +59,7 @@ const Input = (props) => {
             ref={refInput ? refInput : tempRef}
           />
           <p className={styles.uploadInstructions}>{instructions}</p>
-          {!!validationMessage && (
+          {noLabelAndError||!!validationMessage && (
             <span className={styles.errorMessage || validationMessage}>
               {errorMessage}
             </span>
@@ -81,7 +82,7 @@ const Input = (props) => {
           <label className={styles.labelRadio}for={label}>
             {label}
           </label>
-          {!!validationMessage && (
+          {noLabelAndError||!!validationMessage && (
             <span className={styles.errorMessage || validationMessage}>
               {errorMessage}
             </span>

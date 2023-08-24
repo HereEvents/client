@@ -29,8 +29,7 @@ function Layout() {
   const [search, setSearch] = useState("");
   const [categories, setCategories] = useState([]);
   const [audiences, setAudiences] = useState([]);
-  const [loader, setLoader]=useState(true)
-
+  const [loader, setLoader] = useState(true);
 
   async function fetchData() {
     let apiCategories, apiAudiences;
@@ -59,12 +58,31 @@ function Layout() {
   }, []);
 
   useEffect(() => {
-    let milliSecond= 1000*60*2
-    if(localStorage.secondTime){milliSecond = 750}
-      setTimeout(() => {
-        setLoader(false);
-        localStorage.secondTime = true 
-      }, milliSecond);
+    let milliSecond = 1000 * 60 * 2;
+    if (localStorage.secondTime) {
+      milliSecond = 750;
+    }
+    setTimeout(() => {
+      setLoader(false);
+      localStorage.secondTime = true;
+    }, milliSecond);
+  }, []);
+
+  useEffect(async () => {
+    const token = localStorage.getItem("Token");
+    if (token) {
+      const verifiedUser = await apiCalls("post", "/user/verify", {
+        aoutherizetion: token,
+      });
+      console.log(verifiedUser);
+      if (verifiedUser.email) {
+        setUser(verifiedUser);
+      } else {
+        setUser("");
+      }
+    } else {
+      setUser("");
+    }
   }, []);
 
   // useEffect(() => {
@@ -73,7 +91,7 @@ function Layout() {
   //       !user &&
   //       (location.pathname == "/searchEvent" ||
   //         location.pathname.startsWith("/viewEvent"))
-  //     ) 
+  //     )
   //     {
   //       setGuestMode(true);
   //       setPopUpText("עדיין לא יצא לנו להכיר😊");
@@ -87,26 +105,30 @@ function Layout() {
   return (
     <>
       <userContext.Provider value={{ user, setUser, isAdmin, setIsAdmin }}>
-        <popUpContext.Provider value={{ setPopUp, setGuestMode, setPopUpText,setSaveEventMode }}>
+        <popUpContext.Provider
+          value={{ setPopUp, setGuestMode, setPopUpText, setSaveEventMode }}
+        >
           {loader ? (
-        <SplashScreen loader={loader} setLoader={setLoader} />
-      ) : (
-          <headerContext.Provider
-            value={{ header, setHeader, search, setSearch }}
-          >
-            <settingsContext.Provider value={{ categories, audiences }}>
-              <Header />
-              <fakeDataContext.Provider value={{ fakeData }}>
-                <Main />
-                {popUp &&
-            <GuestPopup text={popUpText} guestMode={guestMode} saveEventMode={saveEventMode}/> 
-          }
-
-
-              </fakeDataContext.Provider>
-            </settingsContext.Provider>
-          </headerContext.Provider>
-)}
+            <SplashScreen loader={loader} setLoader={setLoader} />
+          ) : (
+            <headerContext.Provider
+              value={{ header, setHeader, search, setSearch }}
+            >
+              <settingsContext.Provider value={{ categories, audiences }}>
+                <Header />
+                <fakeDataContext.Provider value={{ fakeData }}>
+                  <Main />
+                  {popUp && (
+                    <GuestPopup
+                      text={popUpText}
+                      guestMode={guestMode}
+                      saveEventMode={saveEventMode}
+                    />
+                  )}
+                </fakeDataContext.Provider>
+              </settingsContext.Provider>
+            </headerContext.Provider>
+          )}
         </popUpContext.Provider>
       </userContext.Provider>
     </>

@@ -19,7 +19,7 @@ const apiCalls = async (
       url: fullUrl,
       data: information,
       params: { q: param },
-      headers:  {...header,authorization : "Bearer "+localStorage.Token} ,
+      headers: { ...header, authorization: "Bearer " + localStorage.Token },
     });
     // console.log("******************", data);
     return data.data;

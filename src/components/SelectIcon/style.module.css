@@ -1,8 +1,9 @@
 .main {
-  width: 100%;
+  width: 75%;
   display: flex;
+  align-self: flex-end;
   justify-content: center;
-    font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .container {
@@ -10,7 +11,7 @@
   direction: rtl;
 }
 
-.icons { 
+.icons {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 4px;
@@ -25,15 +26,17 @@
 
 .header {
   width: fit-content;
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
   font-size: 20px;
   line-height: 34px;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 .errorMessage {
   align-self: flex-end;
   padding: 5px;
   color: red;
+  white-space: nowrap;
 }
 .isChosen {
   display: none;
