@@ -17,7 +17,7 @@ export default function IntroductionFormPopup({setIsPopup,event}){
 
   useEffect(()=>{
     if (localStorage.lastEvent&&localStorage.Token) {
-      localStorage.lastEvent=null
+      localStorage.removeItem('lastEvent')
       setStep(3)
     }
   }
