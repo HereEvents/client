@@ -98,7 +98,7 @@ return(
             </label>
           </div>
         </>:null}
-          <ClassicButton width="100%" text={step==2?"יצירת חשבון":"מדהים, המשכנו!"} type="submit" disabled={!(isEmail)}/>
+          <ClassicButton width="100%" text={step==2?"יצירת חשבון":"מדהים, המשכנו!"} type="submit" disabled={step==2?!(isEmail):false}/>
       </form>}
         </div>      
     </div>
