@@ -12,6 +12,7 @@ export default function GoogleRegister() {
     const verifiedUser = await apiCalls("post", "/user/verify", {
       aoutherizetion: params.get("token"),
     });
+    console.log(verifiedUser);
     if (verifiedUser.email) {
       setUser(verifiedUser);
     } else {
@@ -19,10 +20,8 @@ export default function GoogleRegister() {
     }
   if (localStorage.lastEvent) {
     nav("/viewEvent/"+localStorage.lastEvent)
-    console.log("lastEvent");    
   }
   else{
-    console.log("no");
     nav("../");
   }
   };
