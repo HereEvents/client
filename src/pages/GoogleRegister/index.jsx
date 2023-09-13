@@ -12,17 +12,16 @@ export default function GoogleRegister() {
     const verifiedUser = await apiCalls("post", "/user/verify", {
       aoutherizetion: params.get("token"),
     });
-    console.log(verifiedUser);
     if (verifiedUser.email) {
       setUser(verifiedUser);
     } else {
       setUser("");
     }
   if (localStorage.lastEvent) {
-    nav("/viewEvent/"+localStorage.lastEvent)
+    nav("/viewEvent/"+localStorage.lastEvent,{ replace: true })
   }
   else{
-    nav("../");
+    nav("../",{ replace: true });
   }
   };
   useEffect(() => {

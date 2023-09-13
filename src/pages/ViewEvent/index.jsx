@@ -98,10 +98,13 @@ export default function ViewEvent() {
     }
   }
 
-  const VerifyToken = async () => {
-    if(user===""){
+  const VerifyToken =  () => {
+    console.log(user);
+    setTimeout(()=>{if(user===""){
             setIsPopup(true)
-      }}
+            console.log(user);
+      }},500)
+    }
 
   useEffect(() => {
     VerifyToken();
