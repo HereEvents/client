@@ -18,7 +18,7 @@ export default function IntroductionFormPopup({setIsPopup,event}){
   useEffect(()=>{
     if (localStorage.lastEvent&&localStorage.Token) {
       localStorage.lastEvent=null
-      setStep(2)
+      setStep(3)
     }
   }
   ,[])
@@ -55,14 +55,8 @@ export default function IntroductionFormPopup({setIsPopup,event}){
     city:    (e.target[3].value),
     approval:(e.target[4].checked)
   }
-    if(fullForm.email){
       const res = await apiCalls("put", "user/updateDetails",fullForm)
       setUser(res);
-      setStep(3)
-    }
-    else{
-      console.log("error");
-    }
   } catch (error) {
     console.log(error);
   }
