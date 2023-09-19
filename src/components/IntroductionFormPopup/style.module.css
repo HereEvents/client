@@ -71,3 +71,16 @@
 .hidden{
     display: none;
   }
+
+  .buttonGoogle{
+    position: absolute;
+    z-index: 1;
+    margin: -52px 67%;
+  }
+
+  .login{
+    font-size: 14px;
+    text-align: center;
+    color: var(--text-third-color);
+  }
+
