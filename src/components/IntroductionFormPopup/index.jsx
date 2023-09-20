@@ -56,7 +56,6 @@ export default function IntroductionFormPopup({setIsPopup,event}){
     city:    (e.target[3].value),
     approval:(e.target[4].checked)
   }
-  console.log(fullForm);
       const res = await apiCalls("put", "user/updateDetails",fullForm)
       setUser(res);
   } catch (error) {
