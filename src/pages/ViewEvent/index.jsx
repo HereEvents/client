@@ -420,7 +420,7 @@ export default function ViewEvent() {
           </div>
         </div>
       )}
-            {isPopup&&<IntroductionFormPopup setIsPopup={setIsPopup} event={event}/>}
+            {isPopup&&<IntroductionFormPopup setIsPopup={setIsPopup} route={"/viewEvent/"+event}/>}
     </>
   );
 }

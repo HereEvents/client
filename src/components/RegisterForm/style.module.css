@@ -1,0 +1,57 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 40px 32px;
+}
+
+
+.form input {
+    height: 56px;
+}
+
+.title {
+    text-align: right;
+    font-family: Heebo;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.containerCheckbox{
+    display: flex;
+    font-size: 11px;
+    align-items: center;
+    height: 19px;
+}
+.labelCheckbox{
+    margin-right: 6px;
+}
+
+.secondTitle{
+    color: var(--text-third-color);
+}
+
+.clickHere {
+    margin-right: 5px;
+    text-decoration: underline;
+    color: var(--bg-secondary-color);
+  }
+
+.hidden{
+    display: none;
+  }
+
+  .buttonGoogle{
+    position: absolute;
+    z-index: 1;
+    margin: -52px 67%;
+  }
+
+  .login{
+    font-size: 14px;
+    text-align: center;
+    color: var(--text-third-color);
+  }
+

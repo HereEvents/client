@@ -17,8 +17,8 @@ export default function GoogleRegister() {
     } else {
       setUser("");
     }
-  if (localStorage.lastEvent) {
-    nav("/viewEvent/"+localStorage.lastEvent,{ replace: true })
+  if (localStorage.lastRoute) {
+    nav(localStorage.lastRoute,{ replace: true })
   }
   else{
     nav("../",{ replace: true });
