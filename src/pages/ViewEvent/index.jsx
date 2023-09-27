@@ -61,7 +61,7 @@ export default function ViewEvent() {
   const [eventData, setEventData] = useState();
   const [isActive, setIsActive] = useState(false);
   const [isPublished, setIsPublished] = useState(false);
-  const [isPopup, setIsPopup] = useState(localStorage.lastEvent?true:false);
+  const [isPopup, setIsPopup] = useState(localStorage.lastRoute?true:false);
 
   async function fetchEvent() {
     try {
@@ -420,7 +420,7 @@ export default function ViewEvent() {
           </div>
         </div>
       )}
-            {isPopup&&<IntroductionFormPopup setIsPopup={setIsPopup} route={"/viewEvent/"+event}/>}
+            {isPopup&&<IntroductionFormPopup setIsPopup={setIsPopup}/>}
     </>
   );
 }

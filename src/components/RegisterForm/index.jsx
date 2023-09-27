@@ -7,11 +7,11 @@ import Input from "../Input";
 import apiCalls from "../../function/apiCalls";
 import { setToken } from "../../function/token";
 import userContext from "../../context/userContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
-export default function RegisterForm({route, close}) {
+export default function RegisterForm({close}) {
   
   const [step , setStep] = useState(1)
   const [isEmail,setIsEmail] = useState(false)
@@ -20,6 +20,7 @@ export default function RegisterForm({route, close}) {
 
   const navigate = useNavigate();
 
+  const location = useLocation(); 
 
   useEffect(()=>{
     if (localStorage.lastRoute&&localStorage.Token) {
@@ -78,7 +79,7 @@ export default function RegisterForm({route, close}) {
     </div>
       {(step===1)?<>
     <a href={getGoogleOAuthURL()}>
-          <Input type="button"  noLabelAndError={true} value="אני רוצה להמשיך באמצעות      " onClick={()=>localStorage.lastRoute = route}/>
+          <Input type="button"  noLabelAndError={true} value="אני רוצה להמשיך באמצעות      " onClick={()=>localStorage.lastRoute = location.pathname}/>
         <div className={styles.buttonGoogle}>
         <FcGoogle/>
         </div>
