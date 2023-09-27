@@ -1,15 +1,12 @@
 import styles from "./style.module.css";
 import { useState , useEffect , useContext } from "react";
-import getGoogleOAuthURL from "../../function/getGoogleOAuthURL";
-import { FcGoogle } from "react-icons/fc";
 import ClassicButton from "../ClassicButton copy";
 import Input from "../Input";
 import apiCalls from "../../function/apiCalls";
 import { setToken } from "../../function/token";
 import userContext from "../../context/userContext";
-import { useLocation, useNavigate } from "react-router-dom";
-
-
+import { useNavigate } from "react-router-dom";
+import EnterGoogle from "../EnterGoogle";
 
 export default function RegisterForm({close}) {
   
@@ -20,8 +17,6 @@ export default function RegisterForm({close}) {
 
   const navigate = useNavigate();
 
-  const location = useLocation(); 
-
   useEffect(()=>{
     if (localStorage.lastRoute&&localStorage.Token) {
       localStorage.removeItem('lastRoute')
@@ -29,8 +24,6 @@ export default function RegisterForm({close}) {
     }
   }
   ,[])
-
-
 
   async function createUser (e){
   e.preventDefault();
@@ -78,12 +71,7 @@ export default function RegisterForm({close}) {
       <br /> <span className={styles.secondTitle}>{step==1?"נשמח להכיר ולעדכן על אירועים שלא בא לך לפספס!":step==2?"הרשמה קצרה וממשיכים":"השלימו את הפרופיל ותקבלו הצעות מותאמות אישית"}</span>
     </div>
       {(step===1)?<>
-    <a href={getGoogleOAuthURL()}>
-          <Input type="button"  noLabelAndError={true} value="אני רוצה להמשיך באמצעות      " onClick={()=>localStorage.lastRoute = location.pathname}/>
-        <div className={styles.buttonGoogle}>
-        <FcGoogle/>
-        </div>
-    </a>
+    <EnterGoogle/>
     <Input type="button" onClick={()=>setStep(2)} noLabelAndError={true} value="אני רוצה להירשם באמצעות מייל"
     /> 
     <div className={styles.login}>

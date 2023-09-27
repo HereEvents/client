@@ -1,52 +1,26 @@
-/* .main{
-    margin-top: 10%;
-    height: 80vh;
-} */
-
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-}
-.connection {
-  font-size: xx-large;
-  text-align: center;
-  padding-top: 4%;
-}
 .form {
-  width: 100%;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  justify-content: space-around;
-  direction: rtl;
-  padding-left: 4%;
-  padding-right: 4%;
-}
-.inputs {
-  direction: rtl;
-  margin: 0 0 5% 8%;
+  gap: 15px;
+  padding: 40px 32px;
 }
 
-.remember {
-  margin: -5% 0 0 55%;
+
+.form input {
+  height: 56px;
 }
 
-.question {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 4% 4% 0;
-  font: size 5%;
+.title {
+  text-align: right;
+  font-family: Heebo;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.forgotPassword {
-  cursor: pointer;
-  text-decoration: underline;
-  margin-bottom: 2%;
+.secondTitle{
+  color: var(--text-third-color);
 }
 
 .clickHere {
@@ -55,51 +29,9 @@
   color: var(--bg-secondary-color);
 }
 
-.firstButton {
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  direction: rtl;
-  margin-top: 10%;
+.login{
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-third-color);
 }
 
-.button {
-  display: flex;
-  align-items: center;
-}
-.icon {
-  font-size: large;
-  margin-left: 10px;
-}
-.errorMessage {
-  display: block;
-  padding: 5px;
-  color: red;
-}
-.submitted input:invalid {
-  border-color: red;
-}
-
-.submitted input:invalid:focus {
-  outline-color: red;
-}
-
-/* .secondButtonContainer{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    direction: rtl;
-}
-
-.secondButton{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    direction: rtl;
-    margin: -15px;
-} */

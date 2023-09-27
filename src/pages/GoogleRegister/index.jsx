@@ -17,7 +17,11 @@ export default function GoogleRegister() {
     } else {
       setUser("");
     }
-  if (localStorage.lastRoute) {
+  if (localStorage.lastRoute==="/login"){
+    nav("/" , { replace: true })
+    localStorage.removeItem('lastRoute')
+  }
+  else if (localStorage.lastRoute) {
     nav(localStorage.lastRoute,{ replace: true })
   }
   else{
