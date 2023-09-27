@@ -18,7 +18,7 @@ function Registeretion() {
   const navigate = useNavigate();
 
   return (
-<RegisterForm close={()=>navigate("/",{ replace: true })} route="/registeretion"/>
+<RegisterForm close={()=>navigate("/",{ replace: true })} />
   );
 }
 
